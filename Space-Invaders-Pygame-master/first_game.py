@@ -7,19 +7,19 @@ screen = pygame.display.set_mode((800, 600))
 
 # Title and Icon
 pygame.display.set_caption('Space Invaders')
-icon = pygame.image.load("game_controller.png")
+icon = pygame.image.load("Space-Invaders-Pygame-master/game_controller.png")
 pygame.display.set_icon(icon)
 
 # Background
-background = pygame.image.load('background.png')
+background = pygame.image.load('Space-Invaders-Pygame-master/background.png')
 
 # Background sound
 mixer.init()
-mixer.music.load('background.wav')
+mixer.music.load('Space-Invaders-Pygame-master/background.wav')
 mixer.music.play(-1)
 
 # PLayer
-playerImage = pygame.image.load('spaceship.png')
+playerImage = pygame.image.load('Space-Invaders-Pygame-master/spaceship.png')
 playerX = 370
 playerY = 480
 playerX_change = 0
@@ -33,7 +33,7 @@ enemyY_change = []
 num_of_enemies = 6
 
 for i in range(num_of_enemies):
-    enemyImg.append(pygame.image.load('alien.png'))
+    enemyImg.append(pygame.image.load('Space-Invaders-Pygame-master/alien.png'))
     enemyX.append(randint(5, 735))
     enemyY.append(randint(50, 150))
     enemyX_change.append(3)
@@ -42,7 +42,7 @@ for i in range(num_of_enemies):
 # Bullet
 # Ready - You can't see the bullet on the screen
 # Fire - The bullet is currently moving
-bulletImage = pygame.image.load('bullet.png')
+bulletImage = pygame.image.load('Space-Invaders-Pygame-master/bullet.png')
 bulletX = 0
 bulletY = 480
 bulletX_change = 0
@@ -110,7 +110,7 @@ while run:
             if event.key == pygame.K_RIGHT:
                 playerX_change = 4
             if event.key == pygame.K_SPACE:
-                bullet_sound = mixer.Sound('laser.wav')
+                bullet_sound = mixer.Sound('Space-Invaders-Pygame-master/laser.wav')
                 bullet_sound.play()
                 if bulletState == 'ready':
                     bulletX = playerX
@@ -147,7 +147,7 @@ while run:
         # Collision
         collision = isCollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
-            explosion_sound = mixer.Sound('explosion.wav')
+            explosion_sound = mixer.Sound('Space-Invaders-Pygame-master/explosion.wav')
             explosion_sound.play()
             bulletY = 480
             bulletState = 'ready'
